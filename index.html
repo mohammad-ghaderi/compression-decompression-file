@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+</head>
+
+<body class="py-5">
+    <div class="container">
+        <h1 id="heading">COMPRESS & DECOMPRESS FILE</h1>
+
+
+
+        <div class="alert my-2">
+            
+        </div>
+
+        <div class="progress">
+            <!-- <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+        </div>
+  
+  
+
+        <div class="bigdiv">
+            <div class="align py-4" id="step1">
+                <form method="post" enctype="multipart/form-data" class="form d-flex w-100" id="fileform">
+                    <fieldset style="width: 100%">
+                        <input type="file" id="uploadfile" class="input form-control" id="formFile" />
+                    </fieldset>
+                    <button type="button" class="btn btn-primary" id="submitbtn">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic button group">
+                <button class="btn btn-outline-primary" id="encode" >COMPRESS</button>
+                <button class="btn btn-outline-primary" id="decode">DECOMPRESS</button>
+            </div>    
+
+
+            <div class="align my-2 mt-5" id="text4">
+                <button type="button" class="btn btn-outline-info" onclick="location.reload()">Click Here</button>
+                to Start Again!
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./render.js"></script>
+
+</html>
