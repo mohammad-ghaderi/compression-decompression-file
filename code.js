@@ -190,8 +190,24 @@ module.exports.Codec = class Codec {
 
 		// convert data into coded data
 		let binary_string = "";
+		let encoded_data = "";
 		for (let i = 0; i < data.length; i++) {
 			binary_string += this.codes[data[i]];
+
+			if (binary_string.length > 1000) {
+				while (binary_string.length >= 8) {
+					let i = 0;
+					for (i = 0; i < binary_string.length;) {
+						let curr_num = 0;
+						for (let j = 0; j < 8; j++, i++) {
+							curr_num *= 2;
+							curr_num += binary_string[i] - '0';
+						}
+						encoded_data += String.fromCharCode(curr_num);
+					}
+					binary_string = binary_string.slice(i, binary_string.length);
+				}
+			}
 		}
 
 		let padding_length = (8 - (binary_string.length % 8)) % 8;
@@ -199,7 +215,6 @@ module.exports.Codec = class Codec {
 			binary_string += '0';
 		}
 
-		let encoded_data = "";
 		for (let i = 0; i < binary_string.length;) {
 			let curr_num = 0;
 			for (let j = 0; j < 8; j++, i++) {

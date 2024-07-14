@@ -79,6 +79,7 @@ encodeBtn.onclick = async function () {
 	fileReader.onload = function (fileLoadedEvent) {
 		let text = fileLoadedEvent.target.result;
 		let [encodedString, outputMsg] = window.api.encode(text)
+		console.log("Compressing your file...")
 		showProgress("Compressing your file ...");
 		myDownloadFile(uploadedFile.name.split('.')[0] + "_compressed.txt", encodedString);
 		showAlert(outputMsg);
@@ -125,13 +126,13 @@ function showProgress(secMsg) {
 
 	const doProgress = setInterval(() => {
 		val += 20;
-		console.log(val);
+		// console.log(val);
 		prog.setAttribute("style", `width: ${val}%;`);
 		prog.setAttribute("ari-valuenow", (val).toString());
 		prog.setAttribute("ari-valuenow", `${val}`);
 		progress.innerHTML = null;
 		progress.appendChild(prog);
-		console.log('val', val)
+		// console.log('val', val)
 	}, 200);
 	
 	setTimeout(() => clearInterval(doProgress), 1000);
