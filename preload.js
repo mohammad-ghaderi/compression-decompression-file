@@ -1,5 +1,4 @@
 const { contextBridge } = require('electron/renderer')
-const { compression, deCompression } = require('./hafmanTree.js')
 const { Codec } = require('./code.js')
 
 
